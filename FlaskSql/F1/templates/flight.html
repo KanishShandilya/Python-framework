@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Info
+{% endblock %}
+{% block body %}
+<ul>
+    <li>Origin:{{flight.origin}}</li>
+    <li>Destination:{{flight.destination}}</li>
+    <li>Duration:{{flight.duration}}</li>
+</ul>
+<h3>Passengers</h3>
+<ol>
+    {% for passenger in passengers %}
+        <li>{{passenger.name}}</li>
+    {% else %}
+        <li>No passengers</li>
+    {% endfor %}
+</ol>
+{% endblock %}
