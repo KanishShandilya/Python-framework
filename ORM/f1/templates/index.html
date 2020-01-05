@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block title %}
+Flights 
+{% endblock %}
+{% block body %}
+<form action="{{url_for('book')}}" method='post'>
+    <select name="fli">
+        {% for flight in flights %}
+            <option value="{{flight.id}}">
+                {{flight.origin}} to {{flight.destination}}
+            </option>
+        {% endfor %}
+    </select><br>
+    <input type="text" name="na" placeholder="Enter your name">
+    <input type="submit" value="Book">
+</form>
+{% endblock %}
