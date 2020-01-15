@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Books
+{% endblock %}
+{% block body %}
+<ul>
+{% for l in lis %}
+    <h6 class="display-4"><li><a href="{{url_for('info',isbn=l.isbn)}}">{{l.title}}</a></li></h6>
+{%else%}
+<h1>Nothing</h1>
+{% endfor %}
+</ul>
+{% endblock %}

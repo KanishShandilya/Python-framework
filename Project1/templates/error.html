@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block title %}
+Error
+{% endblock %}
+{% block body %}
+<center>
+    <h3>{{message}}</h3>
+    <form action="{{url_for('index')}}">
+        <button class="btn btn-primary">OK</button>
+    </form>
+</center>
+{% endblock %}

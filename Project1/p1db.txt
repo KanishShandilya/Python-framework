@@ -1,0 +1,1 @@
+postgres://dtnlizirzinqoh:628f13a9c751b1baa2373bf575b9539b431302ddbf9607114eb818ad15943aa1@ec2-174-129-41-127.compute-1.amazonaws.com:5432/d8hi5sbk9i7kli

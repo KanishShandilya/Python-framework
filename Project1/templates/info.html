@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block title %}
+BookINFO
+{% endblock %}
+{% block body %}
+<h1>ID-></h1><h4>{{data["id"]}}</h4> <br>
+<h1>ISBN-></h1><h4>{{data["isbn"]}}</h4> <br>
+<h4  class="display-1">
+    Rating<h3>{{data["average_rating"]}}</h3>
+</h4>
+
+{% endblock %}

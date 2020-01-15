@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block title %}
+Search For BOOks
+{% endblock %}
+
+{% block body %}
+<h1 class="disply-1">WELCOME {{user.username}}</h1>
+<form action="{{url_for('search')}}"  method='POST'>
+    <select name="value">
+        <option value="1">isbn</option>
+        <option value="2">author</option>
+        <option value="3">title</option>
+    </select>
+    <input type="text" name="searchname" placeholder="Enter books for searching">
+    <button class="btn btn-primary">SUBMIT</button>
+</form>
+{% endblock %}
