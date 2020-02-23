@@ -1,0 +1,17 @@
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script>
+        const template =Handlebars.compile("<li>{{value}}</li>")
+        document.addEventListener('DOMContentLoaded',()=>{
+            document.querySelector('#roll').onclick=()=>{
+                const r=Math.floor((Math.random()*6)+1)
+                const content=template({'value':r})
+                document.querySelector('#rolls').innerHTML=content
+            }
+        })
+    </script>
+</head>
+<body>
+    <button id="roll">Roll</button>
+    <ul id="rolls"></ul>
+</body>

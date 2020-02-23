@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <script>
+            
+            document.addEventListener('DOMContentLoaded',()=>{
+                load_page('first');
+
+                document.querySelectorAll('.nav-link').forEach((link) =>{
+                    link.onclick=()=>{
+                        const page=link.dataset.page
+                        load_page(page)
+                        return false
+                    }
+                })
+            })
+
+            function load_page(name) {
+                const request=new XMLHttpRequest();
+                request.open('GET',`/${name}`);
+                request.onload=()=>{
+                    const response=request.responseText;
+                    document.querySelector('#div').innerHTML=response;
+
+                    //PUSH STATE TO URL
+                    document.title=name;
+                    history.pushState({'title':name,'text':response},name,name)
+                }
+                request.send();
+            }
+
+            //back button
+            window.onpopstate=(e)=>{
+                const data=e.state
+                document.title=data.title
+                document.querySelector('#div').innerHTML=data.text
+            }
+        </script>
+    </head>
+    <body>
+        <ul id='ul'>
+            <li><a href="" class="nav-link" data-page="first"> FIRST PAGE</a></li>
+            <li><a href="" class="nav-link" data-page="second"> SECOND PAGE</a></li>
+            <li><a href="" class="nav-link" data-page="third"> THIRD PAGE</a></li>
+        </ul>
+        <div id="div"></div>
+    </body>
+</html>

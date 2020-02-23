@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script>
+            let counter=1 
+            const quantity=100
+
+            document.addEventListener('DOMContentLoaded',load);
+
+            window.onscroll=()=>{
+                if(window.innerHeight+window.scrollY>=document.body.offsetHeight){
+                    load()
+                }
+            }
+            function load(){
+                //set start ,end and update counter
+                const start=counter
+                const end=start+quantity-1
+                counter=end+1 
+                //Setting request variable
+                const request=new XMLHttpRequest();
+                request.open('POST','/posts')
+                //Onload
+                request.onload=()=>{
+                    alert('ONLOAD')
+                    const dat=JSON.parse(request.responseText)
+                    console.log(dat)
+                    dat.forEach(add_post)
+                }
+                //sending
+                const data=new FormData()
+                data.append('start',start)
+                data.append('end',end)
+                request.send(data)
+            }
+
+            function add_post(content){
+                const post=document.createElement('div')
+
+                post.className='post'
+                post.innerHTML=content
+
+                document.querySelector('#posts').append(post)
+            }
+        </script>
+    </head>
+    <body>
+        <div id="posts">
+
+        </div>
+    </body>
+</html>
